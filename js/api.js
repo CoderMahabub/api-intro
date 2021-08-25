@@ -26,21 +26,6 @@ function loadTodos() {
         .then(res => console.log(res))
 }
 
-function loadPosts() {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-        .then(response => response.json())
-        .then(data => displayPosts(data))
-}
-
-function displayPosts(data) {
-    const ul = document.getElementById('users-post');
-    for (const post of data) {
-        const li = document.createElement('li');
-        li.innerText = `User ID: ${post.userId}, ID: ${post.id}, Title: ${post.title}, Message: ${post.body}`;
-        ul.appendChild(li);
-    }
-}
-
 //Load Photos from JSON
 function loadPhotos() {
     fetch('https://jsonplaceholder.typicode.com/photos')
@@ -56,5 +41,21 @@ function displayPhotos(data) {
         const article = document.createElement('article');
         article.innerText = `Album ID: ${photo.id} | URL: ${photo.url} | Thumbnail: ${photo.thumbnail} | Album Title: ${photo.title} `;
         loadPhoto.appendChild(article);
+    }
+}
+
+//Load Posts from
+function loadPosts() {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+        .then(response => response.json())
+        .then(data => displayPosts(data))
+}
+
+function displayPosts(data) {
+    const ul = document.getElementById('users-post');
+    for (const post of data) {
+        const li = document.createElement('li');
+        li.innerText = `User ID: ${post.userId}, ID: ${post.id}, Title: ${post.title}, Message: ${post.body}`;
+        ul.appendChild(li);
     }
 }
